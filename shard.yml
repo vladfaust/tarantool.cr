@@ -1,0 +1,17 @@
+name: tarantool
+version: 0.0.1
+
+authors:
+  - Vlad Faust <mail@vladfaust.com>
+
+crystal: 0.24.2
+
+license: MIT
+
+dependencies:
+  msgpack:
+    github: crystal-community/msgpack-crystal
+    version: ~> 0.8.0
+  time_format:
+    github: vladfaust/time_format.cr
+    version: ~> 0.1.0
