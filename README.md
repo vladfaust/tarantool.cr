@@ -36,9 +36,10 @@ After you [installed and run Tarantool](https://tarantool.io/en/doc/1.9/book/get
 require "tarantool"
 
 db = Tarantool::Connection.new("localhost", 3301) # Initiate the connection
-db.insert(999, {1, "hello"}) # Insert "hello" tuple
-db.update(999, 0, {1}, {"=", 1, "hello world"}) # Replace "hello" with "hello world"
-db.select(999, 0, {1}).body!.data # => [[1, "hello world"]]
+db.parse_schema # Save current box schema to db instance
+db.insert(:examples, {1, "hello"}) # Insert "hello" tuple
+db.update(:examples, :primary, {1}, {"=", 1, "hello world"}) # Replace "hello" with "hello world"
+db.select(:examples, :name, {"hello world"}).body.data # => [[1, "hello world"]]
 ```
 
 All Tarantool interactions are *synchronous*.
