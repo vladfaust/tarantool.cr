@@ -13,7 +13,9 @@ The Tarantool driver for Crystal.
 
 ## Funding
 
-This is one of my commerical projects. It's MIT licensed, but features and support are paid (drop me an email at mail@vladfaust.com). I still accept pull requests though.
+This is one of my commerical projects. It's MIT licensed; bugs are fixed for free but features and support are paid (drop me an email at mail@vladfaust.com). I still accept pull requests though.
+
+This shard has been initially sponsored by [to.click](https://to.click).
 
 ## Installation
 
