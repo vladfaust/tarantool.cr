@@ -57,6 +57,7 @@ module Tarantool
     struct Body
       @data : Array(MessagePack::Type)?
 
+      # The body's data. It's usually an array of arrays.
       def data
         @data.not_nil! # According to Tarantoll docs, it cannot be nil
       end
