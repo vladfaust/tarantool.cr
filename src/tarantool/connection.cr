@@ -9,7 +9,7 @@ require "./response"
 module Tarantool
   # A main class which holds a TCP connection to a Tarantool instance.
   #
-  # It's interaction methods (`#ping`, `#select`, `#update` etc.) are synchronous and always return a `Response` instance (except for `#ping` which returns `Time`).
+  # Its interaction methods (`#ping`, `#select`, `#update` etc.) are synchronous and always return a `Response` instance (except for `#ping` which returns `Time`).
   class Connection
     @sync : UInt64 = 0_u64
     @channels = {} of UInt64 => Channel::Unbuffered(Response)
