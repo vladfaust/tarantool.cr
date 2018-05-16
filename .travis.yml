@@ -1,5 +1,10 @@
 language: crystal
-script: crystal docs
+services:
+  - docker
+script:
+  - docker run --name tarantool -d -p 3301:3301 tarantool/tarantool:1
+  - crystal spec
+  - crystal docs
 deploy:
   provider: pages
   skip_cleanup: true
