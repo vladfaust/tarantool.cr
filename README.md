@@ -4,6 +4,7 @@
 [![Build status](https://img.shields.io/travis/vladfaust/tarantool-crystal/master.svg?style=flat-square)](https://travis-ci.org/vladfaust/tarantool-crystal)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg?style=flat-square)](https://vladfaust.com/tarantool-crystal)
 [![Releases](https://img.shields.io/github/release/vladfaust/tarantool-crystal.svg?style=flat-square)](https://github.com/vladfaust/tarantool-crystal/releases)
+[![vladfaust.com](https://img.shields.io/badge/style-.com-lightgrey.svg?longCache=true&style=flat-square&label=vladfaust&colorB=0a83d8)](https://vladfaust.com)
 
 The Tarantool driver for Crystal.
 
