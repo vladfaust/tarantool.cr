@@ -10,7 +10,9 @@ The Tarantool driver for Crystal.
 
 ## About
 
-[Tarantool](https://tarantool.io/) is a super-fast in-memory database. [Crystal](https://crystal-lang.org/) is a super-fast compiled language. Take both.
+[Tarantool](https://tarantool.io/) is a super-fast NoSQL* in-memory database. [Crystal](https://crystal-lang.org/) is a super-fast compiled language. Take both.
+
+\* *It is planned to fully support SQL in version 2, which is currently in alpha*
 
 ## Benchmarks
 
