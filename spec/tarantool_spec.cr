@@ -33,6 +33,7 @@ describe Tarantool do
 
   describe "#authenticate" do
     it do
+      db.authenticate("guest").success?.should be_true
       db.authenticate("jake", "qwerty").success?.should be_true
     end
   end

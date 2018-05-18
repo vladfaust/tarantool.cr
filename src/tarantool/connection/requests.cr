@@ -19,9 +19,10 @@ module Tarantool
       # From Tarantool docs: "Authentication in Tarantool is optional, if no authentication is performed, session user is ‘guest’. The instance responds to authentication packet with a standard response with 0 tuples."
       #
       # ```
+      # db.authenticate("guest").success?          # => true
       # db.authenticate("john", "secret").success? # => true
       # ```
-      def authenticate(username : String, password : String)
+      def authenticate(username : String, password : String = "")
         salt = Base64.decode(@encoded_salt)[0, 20]
 
         step_1 = Digest::SHA1.new.tap(&.update(password)).result
