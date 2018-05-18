@@ -101,12 +101,19 @@ module Tarantool
 
     alias Schema = Hash(String, NamedTuple(id: UInt16, indexes: Hash(String, UInt8)))
 
-    # A current box schema. Allows to use named spaces and indexes in requests.
+    # A small copy of current box schema containing spaces and their indexes.
+    # Allows to use named spaces and indexes in requests.
     #
     # Updated by calling `#parse_schema`.
+    #
+    # You can also modify it yourself:
+    # ```
+    # db.schema["examples"] = {id: 999_u16, indexes: {"primary": 0_u8}}
+    # ```
     getter schema : Schema = Schema.new
 
     # Parse current box schema. Allows to use named spaces and indexes in requests.
+    # NOTE: This will fail if current user doesn't have execute access to "universe".
     def parse_schema
       eval("return box.space").body.data.first.as(Hash).keys.each do |space|
         indexes = eval("return box.space.#{space}.index").body.data.first
