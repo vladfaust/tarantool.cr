@@ -12,6 +12,17 @@ The Tarantool driver for Crystal.
 
 [Tarantool](https://tarantool.io/) is a super-fast in-memory database. [Crystal](https://crystal-lang.org/) is a super-fast compiled language. Take both.
 
+## Benchmarks
+
+Recent results on my 0.90Ghz CPU running on a single core with Tarantool running on the same machine via Docker:
+
+```
+$ crystal bench/select.cr --release
+  1.530000   1.070000   2.600000 (  2.597737)
+```
+
+Resulting performance is **38.4k RPS**, averaging in **26μs** per request.
+
 ## Funding
 
 This is one of my commerical projects. It's MIT licensed; bugs are fixed for free but features and support are paid (drop me an email at mail@vladfaust.com). I still accept pull requests though.
