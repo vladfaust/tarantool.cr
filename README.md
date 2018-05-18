@@ -14,7 +14,7 @@ The Tarantool driver for Crystal.
 
 ## Benchmarks
 
-Recent results on my 0.90Ghz CPU running on a single core with Tarantool running on the same machine via Docker:
+Recent benchmarking of 100k `select` requests on a single 0.90Ghz CPU core with Tarantool running on the same machine via Docker:
 
 ```
 $ crystal bench/select.cr --release
