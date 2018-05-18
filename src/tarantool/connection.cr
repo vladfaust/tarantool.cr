@@ -1,6 +1,7 @@
 require "socket"
 require "logger"
 require "base64"
+require "digest/sha1"
 require "msgpack"
 require "time_format"
 
@@ -24,6 +25,7 @@ module Tarantool
     @sync : UInt64 = 0_u64
     @channels = {} of UInt64 => Channel::Unbuffered(Response)
     @waiting_since = {} of UInt64 => Time
+    @encoded_salt : String
 
     # Initialize a new Tarantool connection.
     #
@@ -42,7 +44,7 @@ module Tarantool
       greeting = @socket.gets
       @logger.try &.info("Initiated connection with #{greeting}") # Tarantool Version
 
-      @salt = Base64.decode_string(@socket.gets.not_nil!.strip)
+      @encoded_salt = @socket.gets.not_nil![0...44]
 
       unpacker = MessagePack::Unpacker.new(@socket)
 
@@ -110,6 +112,27 @@ module Tarantool
       Time.measure do
         send(CommandCode::Ping)
       end
+    end
+
+    # Send AUTHORIZATION request.
+    #
+    # From Tarantool docs: "Authentication in Tarantool is optional, if no authentication is performed, session user is ‘guest’. The instance responds to authentication packet with a standard response with 0 tuples."
+    #
+    # ```
+    # db.authenticate("john", "secret").success? # => true
+    # ```
+    def authenticate(username : String, password : String)
+      salt = Base64.decode(@encoded_salt)[0, 20]
+
+      step_1 = Digest::SHA1.new.tap(&.update(password)).result
+      step_2 = Digest::SHA1.new.tap(&.update(step_1)).result
+      step_3 = Digest::SHA1.new.tap(&.update(salt)).tap(&.update(step_2)).result
+      scramble = step_1.map_with_index { |byte, i| byte ^ step_3[i] }.to_slice
+
+      send(CommandCode::Auth, {
+        Key::Username.value => username,
+        Key::Tuple.value    => ["chap-sha1", scramble],
+      })
     end
 
     # Send SELECT request.

@@ -31,6 +31,12 @@ describe Tarantool do
     end
   end
 
+  describe "#authenticate" do
+    it do
+      db.authenticate("jake", "qwerty").success?.should be_true
+    end
+  end
+
   describe "#insert" do
     it do
       db.insert(999, {1, "vlad", 50}).success?.should be_true
