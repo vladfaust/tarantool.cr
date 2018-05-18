@@ -57,10 +57,10 @@ module Tarantool
     # db.ping # => 00:00:00.000181477
     # ```
     def initialize(
-      @host : String,
-      @port : Int32,
-      @user : String? = nil,
-      @password : String? = nil,
+      host : String,
+      port : Int32,
+      user : String? = nil,
+      password : String = "",
       *,
       @logger : Logger? = nil
     )
@@ -90,6 +90,10 @@ module Tarantool
         end
 
         @socket.close
+      end
+
+      if user && !(user == "guest" && password.empty?)
+        authenticate(user, password)
       end
     end
 

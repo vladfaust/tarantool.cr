@@ -33,8 +33,11 @@ describe Tarantool do
 
   describe "#authenticate" do
     it do
-      db.authenticate("guest").success?.should be_true
       db.authenticate("jake", "qwerty").success?.should be_true
+    end
+
+    it "succeeds on initialization" do
+      Tarantool::Connection.new("localhost", 3301, "jake", "qwerty").should be_truthy
     end
   end
 
