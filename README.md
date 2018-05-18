@@ -56,7 +56,15 @@ db.update(:examples, :primary, {1}, {"=", 1, "hello world"}) # Replace "hello" w
 db.select(:examples, :name, {"hello world"}).body.data # => [[1, "hello world"]]
 ```
 
-All Tarantool interactions are *synchronous*.
+All `Tarantool::Connection#*` requests are *synchronous*, they will be waiting until the response is received. However, a single Tarantool instance itself is capable of handling lots of simultaneous connections, so for the best perfomance consider running requests in multiple fibers:
+
+```crystal
+32.times do
+  spawn do
+    db.ping # All 32 pings are executed concurrently
+  end
+end
+```
 
 ## Testing
 
