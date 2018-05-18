@@ -2,6 +2,7 @@ require "socket"
 require "logger"
 require "base64"
 require "digest/sha1"
+require "uri"
 require "msgpack"
 require "time_format"
 
@@ -30,15 +31,37 @@ module Tarantool
     @waiting_since = {} of UInt64 => Time
     @encoded_salt : String
 
+    # Initialize a new Tarantool connection with string URI.
+    #
+    # ```
+    # db = Tarantool::Connection.new("tarantool://admin:password@localhost:3301")
+    # ```
+    def initialize(uri : String, *, logger = nil)
+      initialize(URI.parse(uri), logger: logger)
+    end
+
+    # Initialize a new Tarantool connection with URI.
+    #
+    # ```
+    # uri = URI.parse("tarantool://localhost:3301")
+    # db = Tarantool::Connection.new(uri)
+    # ```
+    def initialize(uri : URI, *, logger = nil)
+      initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, logger: logger)
+    end
+
     # Initialize a new Tarantool connection.
     #
     # ```
-    # db = Tarantool::Connection.new("localhost", 3301)
+    # db = Tarantool::Connection.new("localhost", 3301, "admin", "password", logger: Logger.new(STDOUT))
     # db.ping # => 00:00:00.000181477
     # ```
     def initialize(
-      @host = "localhost",
-      @port = 3301,
+      @host : String,
+      @port : Int32,
+      @user : String? = nil,
+      @password : String? = nil,
+      *,
       @logger : Logger? = nil
     )
       @socket = TCPSocket.new(host, port)
