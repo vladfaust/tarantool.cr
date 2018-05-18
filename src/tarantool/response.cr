@@ -1,4 +1,6 @@
 require "msgpack"
+require "./constants"
+require "./response/*"
 
 module Tarantool
   # A response sent by Tarantool. It should not be initialized manually.

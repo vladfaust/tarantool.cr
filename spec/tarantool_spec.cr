@@ -42,6 +42,12 @@ describe Tarantool do
       db.insert(999, {1, "vlad", 50}).success?.should be_true
       db.insert(:examples, {2, "raj", 10}).success?.should be_true
     end
+
+    it "raises Response::Error on response error" do
+      expect_raises Tarantool::Response::Error do
+        db.insert(-1, {1, "jake", 1_000_000})
+      end
+    end
   end
 
   describe "#update" do
