@@ -154,7 +154,7 @@ module Tarantool
         channel = @channels[sync] = Channel(Response).new
         @waiting_since[sync] = Time.now
 
-        @socket.write(payload)
+        @socket.send(payload)
         response = channel.receive
       end
 
