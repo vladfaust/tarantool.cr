@@ -100,6 +100,7 @@ module Tarantool
     # Close the connection.
     def close
       @open = false
+      @socket.close
       @channels.clear
     end
 
