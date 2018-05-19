@@ -14,12 +14,12 @@ channel = Channel(Int32).new(COUNT)
 puts Benchmark.measure {
   COUNT.times do |i|
     spawn do
-      db.select(:test, 0, {1}, limit: 1)
+      db.insert(:test, {nil, i, i, i, i, i})
       channel.send(i)
     end
   end
 
   COUNT.times do
-    channel.receive
+    i = channel.receive
   end
 }
