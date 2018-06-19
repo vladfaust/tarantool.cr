@@ -60,7 +60,7 @@ module Tarantool
       host : String,
       port : Int32,
       user : String? = nil,
-      password : String = "",
+      password : String? = nil,
       *,
       @logger : Logger? = nil
     )
@@ -92,8 +92,8 @@ module Tarantool
         @socket.close
       end
 
-      if user && !(user == "guest" && password.empty?)
-        authenticate(user, password)
+      if user && !(user == "guest" && password.to_s.empty?)
+        authenticate(user, password.to_s)
       end
     end
 
