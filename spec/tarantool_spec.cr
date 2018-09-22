@@ -3,6 +3,14 @@ require "./spec_helper"
 db = Tarantool::Connection.new("localhost", 3301)
 
 describe Tarantool do
+  context "with zero timeout" do
+    it "raises IO::Timeout" do
+      expect_raises IO::Timeout do
+        db1 = Tarantool::Connection.new("localhost", 3301, timeout: 0.seconds)
+      end
+    end
+  end
+
   describe "#eval" do
     helpers = File.read(File.expand_path("helpers.lua", "spec"))
 

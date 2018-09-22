@@ -31,26 +31,26 @@ module Tarantool
     @waiting_since = {} of UInt64 => Time
     @encoded_salt : String
 
-    # Initialize a new Tarantool connection with string URI.
+    # Initialize a new Tarantool connection with string URI. May eventually raise `IO::Timeout` on *timeout*.
     #
     # ```
     # db = Tarantool::Connection.new("tarantool://admin:password@localhost:3301")
     # ```
-    def initialize(uri : String, *, logger = nil)
-      initialize(URI.parse(uri), logger: logger)
+    def initialize(uri : String, *, logger = nil, timeout = 1.second)
+      initialize(URI.parse(uri), logger: logger, timeout: timeout)
     end
 
-    # Initialize a new Tarantool connection with URI.
+    # Initialize a new Tarantool connection with URI. May eventually raise `IO::Timeout` on *timeout*.
     #
     # ```
     # uri = URI.parse("tarantool://localhost:3301")
     # db = Tarantool::Connection.new(uri)
     # ```
-    def initialize(uri : URI, *, logger = nil)
-      initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, logger: logger)
+    def initialize(uri : URI, *, logger = nil, timeout = 1.second)
+      initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, logger: logger, timeout: timeout)
     end
 
-    # Initialize a new Tarantool connection.
+    # Initialize a new Tarantool connection. May eventually raise `IO::Timeout` on *timeout*.
     #
     # ```
     # db = Tarantool::Connection.new("localhost", 3301, "admin", "password", logger: Logger.new(STDOUT))
@@ -62,9 +62,10 @@ module Tarantool
       user : String? = nil,
       password : String? = nil,
       *,
-      @logger : Logger? = nil
+      @logger : Logger? = nil,
+      @timeout : Time::Span = 1.second
     )
-      @socket = TCPSocket.new(host, port)
+      @socket = TCPSocket.new(host, port, connect_timeout: @timeout)
       @open = true
 
       greeting = @socket.gets
@@ -88,7 +89,7 @@ module Tarantool
             @channels[sync]?.try &.send(response)
           end
         end
-
+      ensure
         @socket.close
       end
 
@@ -100,7 +101,6 @@ module Tarantool
     # Close the connection.
     def close
       @open = false
-      @socket.close
       @channels.clear
     end
 
@@ -141,7 +141,7 @@ module Tarantool
       end
     end
 
-    # Send request to Tarantool. Always returns `Response`.
+    # Send request to Tarantool. Always returns `Response`. May raise `Response::Error` or `IO::Timeout`.
     protected def send(code, body = nil)
       sync = next_sync
       response = uninitialized Response
