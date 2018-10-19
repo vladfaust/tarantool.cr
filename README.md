@@ -1,9 +1,9 @@
 # Tarantool
 
 [![Built with Crystal](https://img.shields.io/badge/built%20with-crystal-000000.svg?style=flat-square)](https://crystal-lang.org/)
-[![Build status](https://img.shields.io/travis/vladfaust/tarantool-crystal/master.svg?style=flat-square)](https://travis-ci.org/vladfaust/tarantool-crystal)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg?style=flat-square)](https://vladfaust.com/tarantool-crystal)
-[![Releases](https://img.shields.io/github/release/vladfaust/tarantool-crystal.svg?style=flat-square)](https://github.com/vladfaust/tarantool-crystal/releases)
+[![Build status](https://img.shields.io/travis/vladfaust/tarantool.cr/master.svg?style=flat-square)](https://travis-ci.org/vladfaust/tarantool.cr)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg?style=flat-square)](https://vladfaust.com/tarantool.cr)
+[![Releases](https://img.shields.io/github/release/vladfaust/tarantool.cr.svg?style=flat-square)](https://github.com/vladfaust/tarantool.cr/releases)
 [![Awesome](https://github.com/vladfaust/awesome/blob/badge-flat-alternative/media/badge-flat-alternative.svg)](https://github.com/veelenga/awesome-crystal)
 [![vladfaust.com](https://img.shields.io/badge/style-.com-lightgrey.svg?longCache=true&style=flat-square&label=vladfaust&colorB=0a83d8)](https://vladfaust.com)
 [![Patrons count](https://img.shields.io/badge/dynamic/json.svg?label=patrons&url=https://www.patreon.com/api/user/11296360&query=$.included[0].attributes.patron_count&style=flat-square&colorB=red&maxAge=86400)](https://www.patreon.com/vladfaust)
@@ -40,11 +40,11 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   tarantool:
-    github: vladfaust/tarantool-crystal
+    github: vladfaust/tarantool.cr
     version: ~> 0.1.0
 ```
 
-This shard follows [Semantic Versioning 2.0.0](https://semver.org/), so see [releases](https://github.com/vladfaust/tarantool-crystal/releases) and change the `version` accordingly.
+This shard follows [Semantic Versioning 2.0.0](https://semver.org/), so see [releases](https://github.com/vladfaust/tarantool.cr/releases) and change the `version` accordingly.
 
 ## Usage
 
@@ -78,7 +78,7 @@ end
 
 ## Contributing
 
-1. Fork it ( https://github.com/vladfaust/tarantool/fork )
+1. Fork it ( https://github.com/vladfaust/tarantool.cr/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
