@@ -29,11 +29,9 @@ $ crystal bench/select.cr --release
 
 Resulting performance is **38.4k RPS**, averaging in **26μs** per request.
 
-## Funding
+## Projects using Tarantool
 
-This is one of my commerical projects. It's MIT licensed; bugs are fixed for free but features and support are paid (drop me an email at mail@vladfaust.com). I still accept pull requests though.
-
-This shard has been initially sponsored by [to.click](https://to.click).
+* [to.click](https://to.click)
 
 ## Installation
 
