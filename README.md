@@ -73,7 +73,7 @@ end
 ## Testing
 
 1. Run `docker run --name mytarantool -d -p 3301:3301 -v /var/lib/docker/volumes/tarantool:/var/lib/tarantool tarantool/tarantool:1`
-2. Connect to tarantool via console (`docker exec -i -t mytarantool console`) and apply schema found in `/spec/schema.lua`
+2. Connect to tarantool via console (`docker exec -i -t mytarantool console`) and apply schema found in `/spec/helpers.lua`
 3. `crystal spec`
 
 ## Contributing
