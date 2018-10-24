@@ -79,6 +79,7 @@ module Tarantool
         slice = Bytes.new(5)
 
         while @open
+          sleep 0
           if @socket.read_fully?(slice)
             arrived_at = Time.now
             response = Response.new(unpacker)
