@@ -1,10 +1,14 @@
 require "./spec_helper"
 
+db = Tarantool::Connection.new("localhost", 3301)
+
+sleep(3)
+
 describe Tarantool do
   context "initilization with zero connect timeout" do
     it "raises IO::Timeout" do
       expect_raises IO::Timeout do
-        db = Tarantool::Connection.new("localhost", 3301, connect_timeout: 0.seconds)
+        Tarantool::Connection.new("localhost", 3301, connect_timeout: 0.seconds)
       end
     end
   end
@@ -12,22 +16,20 @@ describe Tarantool do
   context "initialization with zero read timeout" do
     it "raises IO::Timeout" do
       expect_raises IO::Timeout do
-        db = Tarantool::Connection.new("localhost", 3301, read_timeout: 0.seconds)
+        Tarantool::Connection.new("localhost", 3301, read_timeout: 0.seconds)
       end
     end
   end
 
-  context "request with read timeout" do
+  pending "request with read timeout" do
     it "raises IO::Timeout" do
-      db = Tarantool::Connection.new("localhost", 3301, read_timeout: 1.second)
+      db1 = Tarantool::Connection.new("localhost", 3301, read_timeout: 1.second)
 
       expect_raises IO::Timeout do
-        db.eval("fiber = require('fiber'); fiber.sleep(5)")
+        db1.eval("fiber = require('fiber'); fiber.sleep(5)")
       end
     end
   end
-
-  db = Tarantool::Connection.new("localhost", 3301)
 
   describe "#eval" do
     helpers = File.read(File.expand_path("helpers.lua", "spec"))

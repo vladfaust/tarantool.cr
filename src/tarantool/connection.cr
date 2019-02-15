@@ -96,6 +96,15 @@ module Tarantool
         @socket.close
       end
 
+      if rt = read_timeout
+        spawn do
+          while @open
+            sleep(rt / 3)
+            ping
+          end
+        end
+      end
+
       Fiber.yield
 
       if user && !(user == "guest" && password.to_s.empty?)
@@ -168,6 +177,8 @@ module Tarantool
 
     # Send request to Tarantool. Always returns `Response`.
     # May raise `Response::Error` or `IO::Timeout` or `Errno`.
+    #
+    # TODO: Individual read timeouts for requests.
     protected def send(code, body = nil)
       sync = next_sync
       response = uninitialized Response
