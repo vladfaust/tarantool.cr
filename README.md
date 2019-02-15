@@ -4,7 +4,7 @@
 [![Build status](https://img.shields.io/travis/vladfaust/tarantool.cr/master.svg?style=flat-square)](https://travis-ci.org/vladfaust/tarantool.cr)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg?style=flat-square)](https://vladfaust.com/tarantool.cr)
 [![Releases](https://img.shields.io/github/release/vladfaust/tarantool.cr.svg?style=flat-square)](https://github.com/vladfaust/tarantool.cr/releases)
-[![Awesome](https://github.com/vladfaust/awesome/blob/badge-flat-alternative/media/badge-flat-alternative.svg)](https://github.com/veelenga/awesome-crystal)
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://github.com/veelenga/awesome-crystal)
 [![vladfaust.com](https://img.shields.io/badge/style-.com-lightgrey.svg?longCache=true&style=flat-square&label=vladfaust&colorB=0a83d8)](https://vladfaust.com)
 [![Patrons count](https://img.shields.io/badge/dynamic/json.svg?label=patrons&url=https://www.patreon.com/api/user/11296360&query=$.included[0].attributes.patron_count&style=flat-square&colorB=red&maxAge=86400)](https://www.patreon.com/vladfaust)
 
