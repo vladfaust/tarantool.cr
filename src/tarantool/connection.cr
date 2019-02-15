@@ -28,6 +28,7 @@ module Tarantool
 
     @sync : UInt64 = 0_u64
     @channels = {} of UInt64 => Channel::Unbuffered(Response)
+    @error_channel = Channel(Exception).new(1)
     @waiting_since = {} of UInt64 => Time
     @encoded_salt : String
 
@@ -50,7 +51,8 @@ module Tarantool
       initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, *args, **nargs)
     end
 
-    # Initialize a new Tarantool connection. May eventually raise `IO::Timeout` on *timeout*.
+    # Initialize a new Tarantool connection.
+    # May raise `IO::Timeout` on *connect_timeout* or *read_timeout*.
     #
     # ```
     # db = Tarantool::Connection.new("localhost", 3301, "admin", "password", logger: Logger.new(STDOUT))
@@ -82,30 +84,43 @@ module Tarantool
 
       @encoded_salt = @socket.gets.not_nil![0...44]
 
-      unpacker = MessagePack::Unpacker.new(@socket)
-
       spawn do
-        slice = Bytes.new(5)
-
-        while @open
-          sleep 0
-          if @socket.read_fully?(slice)
-            arrived_at = Time.now
-            response = Response.new(unpacker)
-            sync = response.header.sync
-
-            @logger.try &.debug("[#{sync}] " + TimeFormat.auto(arrived_at - @waiting_since[sync].not_nil!).rjust(5) + " latency")
-
-            @channels[sync]?.try &.send(response)
-          end
+        routine
+      rescue ex : Exception
+        # It's wrapped in spawn because there is no guarantee
+        # that anyone would read from the @error_channel
+        spawn do
+          @error_channel.send(ex)
         end
       ensure
         @socket.close
       end
 
+      Fiber.yield
+
       if user && !(user == "guest" && password.to_s.empty?)
         authenticate(user, password.to_s)
       end
+    end
+
+    def routine
+      slice = Bytes.new(5)
+      unpacker = MessagePack::Unpacker.new(@socket)
+
+      while @open
+        if @socket.read_fully?(slice)
+          arrived_at = Time.now
+          response = Response.new(unpacker)
+          sync = response.header.sync
+
+          @logger.try &.debug("[#{sync}] " + TimeFormat.auto(arrived_at - @waiting_since[sync].not_nil!).rjust(5) + " latency")
+
+          @channels[sync]?.try &.send(response)
+          Fiber.yield
+        end
+      end
+
+      @logger.try &.info("Gracefully closed connection")
     end
 
     # Close the connection.
@@ -151,7 +166,8 @@ module Tarantool
       end
     end
 
-    # Send request to Tarantool. Always returns `Response`. May raise `Response::Error` or `IO::Timeout`.
+    # Send request to Tarantool. Always returns `Response`.
+    # May raise `Response::Error` or `IO::Timeout` or `Errno`.
     protected def send(code, body = nil)
       sync = next_sync
       response = uninitialized Response
@@ -165,7 +181,12 @@ module Tarantool
         @waiting_since[sync] = Time.now
 
         @socket.send(payload)
-        response = channel.receive
+
+        select
+        when response = channel.receive
+        when ex = @error_channel.receive
+          raise ex
+        end
       end
 
       @logger.try &.debug("[#{sync}] " + TimeFormat.auto(elapsed).rjust(5) + " elapsed")
