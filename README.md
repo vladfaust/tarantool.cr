@@ -49,7 +49,7 @@ Add this to your application's `shard.yml`:
 dependencies:
   tarantool:
     github: vladfaust/tarantool.cr
-    version: ~> 0.2.1
+    version: ~> 0.2.2
 ```
 
 This shard follows [Semantic Versioning 2.0.0](https://semver.org/), so see [releases](https://github.com/vladfaust/tarantool.cr/releases) and change the `version` accordingly.
