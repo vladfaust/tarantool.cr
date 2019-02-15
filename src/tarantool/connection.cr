@@ -36,8 +36,8 @@ module Tarantool
     # ```
     # db = Tarantool::Connection.new("tarantool://admin:password@localhost:3301")
     # ```
-    def initialize(uri : String, *, logger = nil, timeout = 1.second)
-      initialize(URI.parse(uri), logger: logger, timeout: timeout)
+    def initialize(uri : String, *args, **nargs)
+      initialize(URI.parse(uri), *args, **nargs)
     end
 
     # Initialize a new Tarantool connection with URI. May eventually raise `IO::Timeout` on *timeout*.
@@ -46,8 +46,8 @@ module Tarantool
     # uri = URI.parse("tarantool://localhost:3301")
     # db = Tarantool::Connection.new(uri)
     # ```
-    def initialize(uri : URI, *, logger = nil, timeout = 1.second)
-      initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, logger: logger, timeout: timeout)
+    def initialize(uri : URI, *args, **nargs)
+      initialize(uri.host.not_nil!, uri.port.not_nil!, uri.user, uri.password, *args, **nargs)
     end
 
     # Initialize a new Tarantool connection. May eventually raise `IO::Timeout` on *timeout*.
@@ -63,9 +63,18 @@ module Tarantool
       password : String? = nil,
       *,
       @logger : Logger? = nil,
-      @timeout : Time::Span = 1.second
+      @connect_timeout : Time::Span? = 1.second,
+      @dns_timeout : Time::Span? = 1.second,
+      @read_timeout : Time::Span? = 1.second,
+      @write_timeout : Time::Span? = 1.second
     )
-      @socket = TCPSocket.new(host, port, connect_timeout: @timeout)
+      @socket = TCPSocket.new(host, port,
+        connect_timeout: @connect_timeout,
+        dns_timeout: @dns_timeout
+      )
+
+      @socket.read_timeout = read_timeout
+      @socket.write_timeout = write_timeout
       @open = true
 
       greeting = @socket.gets
