@@ -54,6 +54,9 @@ module Tarantool
     # Initialize a new Tarantool connection.
     # May raise `IO::Timeout` on *connect_timeout* or *read_timeout*.
     #
+    # If something bad happens with the connection, it will not raise unless made a request.
+    # You can check is the connection is still alive with `#alive?` command.
+    #
     # ```
     # db = Tarantool::Connection.new("localhost", 3301, "admin", "password", logger: Logger.new(STDOUT))
     # db.ping # => 00:00:00.000181477
@@ -93,14 +96,15 @@ module Tarantool
           @error_channel.send(ex)
         end
       ensure
+        @open = false
         @socket.close
       end
 
       if rt = read_timeout
         spawn do
           while @open
-            sleep(rt / 3)
             ping
+            sleep(rt / 3)
           end
         end
       end
@@ -126,10 +130,16 @@ module Tarantool
 
           @channels[sync]?.try &.send(response)
           Fiber.yield
+        else
+          break @open = false
         end
       end
+    end
 
-      @logger.try &.info("Gracefully closed connection")
+    # Check whether the connection is still alive.
+    # Otherwise requests may raise `Errno` error.
+    def alive?
+      @open
     end
 
     # Close the connection.

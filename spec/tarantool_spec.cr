@@ -31,6 +31,12 @@ describe Tarantool do
     end
   end
 
+  describe "#alive?" do
+    it do
+      db.alive?.should be_true
+    end
+  end
+
   describe "#eval" do
     helpers = File.read(File.expand_path("helpers.lua", "spec"))
 
