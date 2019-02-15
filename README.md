@@ -8,7 +8,15 @@
 [![vladfaust.com](https://img.shields.io/badge/style-.com-lightgrey.svg?longCache=true&style=flat-square&label=vladfaust&colorB=0a83d8)](https://vladfaust.com)
 [![Patrons count](https://img.shields.io/badge/dynamic/json.svg?label=patrons&url=https://www.patreon.com/api/user/11296360&query=$.included[0].attributes.patron_count&style=flat-square&colorB=red&maxAge=86400)](https://www.patreon.com/vladfaust)
 
-The Tarantool driver for Crystal.
+The [Tarantool](https://tarantool.io/) driver for [Crystal](https://crystal-lang.org/).
+
+## Supporters
+
+Thanks to all my patrons, I can continue working on beautiful Open Source Software! 🙏
+
+[Lauri Jutila](https://github.com/ljuti)
+
+*You can become a patron too in exchange of prioritized support and other perks*
 
 [![Become Patron](https://vladfaust.com/img/patreon-small.svg)](https://www.patreon.com/vladfaust)
 
