@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
+  <meta id="repository-name" content="github.com/vladfaust/tarantool.cr">
+  <title>README - github.com/vladfaust/tarantool.cr</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="github.com/vladfaust/tarantool.cr/Tarantool" data-name="tarantool">
+      <a href="Tarantool.html">Tarantool</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/CommandCode" data-name="tarantool::commandcode">
+      <a href="Tarantool/CommandCode.html">CommandCode</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection" data-name="tarantool::connection">
+      <a href="Tarantool/Connection.html">Connection</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Requests" data-name="tarantool::connection::requests">
+      <a href="Tarantool/Connection/Requests.html">Requests</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Schema" data-name="tarantool::connection::schema">
+      <a href="Tarantool/Connection/Schema.html">Schema</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Iterator" data-name="tarantool::iterator">
+      <a href="Tarantool/Iterator.html">Iterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Key" data-name="tarantool::key">
+      <a href="Tarantool/Key.html">Key</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response" data-name="tarantool::response">
+      <a href="Tarantool/Response.html">Response</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Body" data-name="tarantool::response::body">
+      <a href="Tarantool/Response/Body.html">Body</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Error" data-name="tarantool::response::error">
+      <a href="Tarantool/Response/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Header" data-name="tarantool::response::header">
+      <a href="Tarantool/Response/Header.html">Header</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/ResponseCode" data-name="tarantool::responsecode">
+      <a href="Tarantool/ResponseCode.html">ResponseCode</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1>Tarantool</h1>
+
+<p><a href="https://crystal-lang.org/" target="_blank"><img src="https://img.shields.io/badge/built%20with-crystal-000000.svg?style=flat-square" alt="Built with Crystal"/></a>
+<a href="https://travis-ci.org/vladfaust/tarantool.cr" target="_blank"><img src="https://img.shields.io/travis/vladfaust/tarantool.cr/master.svg?style=flat-square" alt="Build status"/></a>
+<a href="https://vladfaust.com/tarantool.cr" target="_blank"><img src="https://img.shields.io/badge/api_docs-online-brightgreen.svg?style=flat-square" alt="Docs"/></a>
+<a href="https://github.com/vladfaust/tarantool.cr/releases" target="_blank"><img src="https://img.shields.io/github/release/vladfaust/tarantool.cr.svg?style=flat-square" alt="Releases"/></a>
+<a href="https://github.com/veelenga/awesome-crystal" target="_blank"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"/></a>
+<a href="https://vladfaust.com" target="_blank"><img src="https://img.shields.io/badge/style-.com-lightgrey.svg?longCache=true&style=flat-square&label=vladfaust&colorB=0a83d8" alt="vladfaust.com"/></a>
+<a href="https://www.patreon.com/vladfaust" target="_blank"><img src="https://img.shields.io/badge/dynamic/json.svg?label=patrons&url=https://www.patreon.com/api/user/11296360&query=$.included[0].attributes.patron_count&style=flat-square&colorB=red&maxAge=86400" alt="Patrons count"/></a>
+<a href="https://gitter.im/vladfaust/Lobby" target="_blank"><img src="https://img.shields.io/badge/chat%20on-gitter-green.svg?colorB=ED1965&logo=gitter&style=flat-square" alt="Gitter chat"/></a></p>
+
+<p>The <a href="https://tarantool.io/" target="_blank">Tarantool</a> driver for <a href="https://crystal-lang.org/" target="_blank">Crystal</a>.</p>
+
+<h2>Supporters</h2>
+
+<p>Thanks to all my patrons, I can continue working on beautiful Open Source Software! 🙏</p>
+
+<p><a href="https://seendex.ru" target="_blank">Alexander Maslov</a>, <a href="https://github.com/ljuti" target="_blank">Lauri Jutila</a></p>
+
+<p><em>You can become a patron too in exchange of prioritized support and other perks</em></p>
+
+<p><a href="https://www.patreon.com/vladfaust" target="_blank"><img src="https://vladfaust.com/img/patreon-small.svg" alt="Become Patron"/></a></p>
+
+<h2>About</h2>
+
+<p><a href="https://tarantool.io/" target="_blank">Tarantool</a> is a super-fast NoSQL* in-memory database. <a href="https://crystal-lang.org/" target="_blank">Crystal</a> is a super-fast compiled language. Take both.</p>
+
+<p>\* <em>It is planned to fully support SQL in version 2, which is currently in alpha</em></p>
+
+<h2>Benchmarks</h2>
+
+<p>Recent benchmarking of 100k <code>select</code> requests on a single 0.90Ghz CPU core with Tarantool running on the same machine via Docker:</p>
+
+<pre><code></code></pre>
+
+<p>Resulting performance is <strong>38.4k RPS</strong>, averaging in <strong>26μs</strong> per request.</p>
+
+<h2>Projects using Tarantool</h2>
+
+<ul><li><a href="https://to.click" target="_blank">to.click</a></li></ul>
+
+<h2>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class="language-yaml">dependencies:
+  tarantool:
+    github: vladfaust/tarantool.cr
+    version: ~> 0.2.2</code></pre>
+
+<p>This shard follows <a href="https://semver.org/" target="_blank">Semantic Versioning 2.0.0</a>, so see <a href="https://github.com/vladfaust/tarantool.cr/releases" target="_blank">releases</a> and change the <code>version</code> accordingly.</p>
+
+<h2>Usage</h2>
+
+<p>After you <a href="https://tarantool.io/en/doc/1.9/book/getting_started/index.html" target="_blank">installed and run Tarantool</a> and setup your schema, do:</p>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;tarantool&quot;</span>
+
+db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</span><span class="t">Connection</span>.<span class="k">new</span>(<span class="s">&quot;localhost&quot;</span>, <span class="n">3301</span>) <span class="c"># Initiate the connection</span>
+db.parse_schema <span class="c"># Save current box schema to db instance</span>
+db.insert(<span class="n">:examples</span>, {<span class="n">1</span>, <span class="s">&quot;hello&quot;</span>}) <span class="c"># Insert &quot;hello&quot; tuple</span>
+db.update(<span class="n">:examples</span>, <span class="n">:primary</span>, {<span class="n">1</span>}, {<span class="s">&quot;=&quot;</span>, <span class="n">1</span>, <span class="s">&quot;hello world&quot;</span>}) <span class="c"># Replace &quot;hello&quot; with &quot;hello world&quot;</span>
+db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="n">:name</span>, {<span class="s">&quot;hello world&quot;</span>}).body.data <span class="c"># =&gt; [[1, &quot;hello world&quot;]]</span></code></pre>
+
+<p>All <code>Tarantool::Connection#*</code> requests are <em>synchronous</em>, they will be waiting until the response is received. However, a single Tarantool instance itself is capable of handling lots of simultaneous connections, so for the best perfomance consider running requests in multiple fibers:</p>
+
+<pre><code class="language-crystal"><span class="n">32</span>.times <span class="k">do</span>
+  spawn <span class="k">do</span>
+    db.ping <span class="c"># All 32 pings are executed concurrently</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+<h2>Testing</h2>
+
+<ol><li>Run <code>docker run --name mytarantool -d -p 3301:3301 -v /var/lib/docker/volumes/tarantool:/var/lib/tarantool tarantool/tarantool:1</code></li><li>Connect to tarantool via console (<code>docker exec -i -t mytarantool console</code>) and apply schema found in <code>/spec/helpers.lua</code></li><li><code>crystal spec</code></li></ol>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/vladfaust/tarantool.cr/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2>Contributors</h2>
+
+<ul><li><a href="https://github.com/vladfaust" target="_blank">@vladfaust</a> Vlad Faust - creator, maintainer</li></ul>
+</div>
+</body>
+</html>

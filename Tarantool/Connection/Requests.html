@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../../";
+</script>
+
+  <meta id="repository-name" content="github.com/vladfaust/tarantool.cr">
+  <title>Tarantool::Connection::Requests - github.com/vladfaust/tarantool.cr</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="github.com/vladfaust/tarantool.cr/Tarantool" data-name="tarantool">
+      <a href="../../Tarantool.html">Tarantool</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/CommandCode" data-name="tarantool::commandcode">
+      <a href="../../Tarantool/CommandCode.html">CommandCode</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection" data-name="tarantool::connection">
+      <a href="../../Tarantool/Connection.html">Connection</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Requests" data-name="tarantool::connection::requests">
+      <a href="../../Tarantool/Connection/Requests.html">Requests</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Schema" data-name="tarantool::connection::schema">
+      <a href="../../Tarantool/Connection/Schema.html">Schema</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Iterator" data-name="tarantool::iterator">
+      <a href="../../Tarantool/Iterator.html">Iterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Key" data-name="tarantool::key">
+      <a href="../../Tarantool/Key.html">Key</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response" data-name="tarantool::response">
+      <a href="../../Tarantool/Response.html">Response</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Body" data-name="tarantool::response::body">
+      <a href="../../Tarantool/Response/Body.html">Body</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Error" data-name="tarantool::response::error">
+      <a href="../../Tarantool/Response/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Header" data-name="tarantool::response::header">
+      <a href="../../Tarantool/Response/Header.html">Header</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/ResponseCode" data-name="tarantool::responsecode">
+      <a href="../../Tarantool/ResponseCode.html">ResponseCode</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Tarantool::Connection::Requests
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Direct including types</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="../../Tarantool/Connection.html">Tarantool::Connection</a></li>
+  
+  </ul>
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L5" target="_blank">
+        tarantool/connection/requests.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method" class="signature"><strong>#authenticate</strong>(username : String, password : String = <span class="s">&quot;&quot;</span>)</a>
+        
+          <div class="summary"><p>Send AUTHORIZATION request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="signature"><strong>#call</strong>(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
+        
+          <div class="summary"><p>Send CALL request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method" class="signature"><strong>#delete</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)</a>
+        
+          <div class="summary"><p>Send DELETE request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="signature"><strong>#eval</strong>(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
+        
+          <div class="summary"><p>Send EVAL request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28space%2Ckey%29-instance-method" class="signature"><strong>#get</strong>(space, key)</a>
+        
+          <div class="summary"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_id : Int, index_name : String)</a>
+        
+          <div class="summary"><p>Get index ID by <em>space_id</em> and <em>index_name</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_name_to_id%28space_name%3AString%2Cindex_name%3AString%29-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_name : String, index_name : String)</a>
+        
+          <div class="summary"><p>Get index ID by <em>space_name</em> and <em>index_name</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="signature"><strong>#insert</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
+        
+          <div class="summary"><p>Send INSERT request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ping-instance-method" class="signature"><strong>#ping</strong></a>
+        
+          <div class="summary"><p>Ping Tarantool and return elapsed time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="signature"><strong>#replace</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
+        
+          <div class="summary"><p>Send REPLACE request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method" class="signature"><strong>#select</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : Iterator | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)</a>
+        
+          <div class="summary"><p>Send SELECT request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#space_name_to_id%28name%3AString%29-instance-method" class="signature"><strong>#space_name_to_id</strong>(name : String)</a>
+        
+          <div class="summary"><p>Get space ID by its <em>name</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method" class="signature"><strong>#update</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)</a>
+        
+          <div class="summary"><p>Send UPDATE request.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method" class="signature"><strong>#upsert</strong>(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)</a>
+        
+          <div class="summary"><p>Send UPSERT request.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="authenticate(username:String,password:String=&amp;quot;&amp;quot;)-instance-method">
+      <div class="signature">
+        
+        def <strong>authenticate</strong>(username : String, password : String = <span class="s">&quot;&quot;</span>)
+
+        <a class="method-permalink" href="#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send AUTHORIZATION request.</p>
+
+<p>From Tarantool docs: "Authentication in Tarantool is optional, if no authentication is performed, session user is ‘guest’. The instance responds to authentication packet with a standard response with 0 tuples."</p>
+
+<pre><code>db.authenticate(<span class="s">&quot;guest&quot;</span>).success?          <span class="c"># =&gt; true</span>
+db.authenticate(<span class="s">&quot;john&quot;</span>, <span class="s">&quot;secret&quot;</span>).success? <span class="c"># =&gt; true</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="call(function:String|Symbol,args:Tuple|Array=[]ofMessagePack::Type)-instance-method">
+      <div class="signature">
+        
+        def <strong>call</strong>(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)
+
+        <a class="method-permalink" href="#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send CALL request.</p>
+
+<p>From Tarantool docs: "Call a stored function, returning an array of tuples."</p>
+
+<pre><code>db.call(<span class="n">:my_func</span>)</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L178" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(space:Int|String|Symbol,index:Int|String|Symbol,key:Tuple|Array)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)
+
+        <a class="method-permalink" href="#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send DELETE request.</p>
+
+<p>From Tarantool docs: "Delete a tuple."</p>
+
+<pre><code>db.delete(<span class="n">999</span>, <span class="n">1</span>, {<span class="s">&quot;vladfaust&quot;</span>})           <span class="c"># Will delete the entry</span>
+db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span class="s">&quot;vladfaust&quot;</span>}) <span class="c"># ditto</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L157" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eval(expression:String,args:Tuple|Array=[]ofMessagePack::Type)-instance-method">
+      <div class="signature">
+        
+        def <strong>eval</strong>(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)
+
+        <a class="method-permalink" href="#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send EVAL request.</p>
+
+<p>From Tarantool docs: "Evaulate Lua expression."</p>
+
+<pre><code>db.eval(<span class="s">&quot;local a, b = ... ; return a + b&quot;</span>, {<span class="n">1</span>, <span class="n">2</span>}) <span class="c"># Will return response with [3] in its body</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L192" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(space,key)-instance-method">
+      <div class="signature">
+        
+        def <strong>get</strong>(space, key)
+
+        <a class="method-permalink" href="#get%28space%2Ckey%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L89" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_name_to_id(space_id:Int,index_name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>index_name_to_id</strong>(space_id : Int, index_name : String)
+
+        <a class="method-permalink" href="#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get index ID by <em>space_id</em> and <em>index_name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L222" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_name_to_id(space_name:String,index_name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>index_name_to_id</strong>(space_name : String, index_name : String)
+
+        <a class="method-permalink" href="#index_name_to_id%28space_name%3AString%2Cindex_name%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get index ID by <em>space_name</em> and <em>index_name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L228" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="insert(space:Int|String|Symbol,tuple:Tuple|Array)-instance-method">
+      <div class="signature">
+        
+        def <strong>insert</strong>(space : Int | String | Symbol, tuple : Tuple | Array)
+
+        <a class="method-permalink" href="#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send INSERT request.</p>
+
+<p>From Tarantool docs: "Inserts tuple into the space, if no tuple with same unique keys exists. Otherwise throw duplicate key error."</p>
+
+<pre><code>db.insert(<span class="n">999</span>, {<span class="n">1</span>, <span class="s">&quot;vlad&quot;</span>})       <span class="c"># Insert into space #999 value {1, &quot;vlad&quot;}</span>
+db.insert(<span class="n">:examples</span>, {<span class="n">1</span>, <span class="s">&quot;vlad&quot;</span>}) <span class="c"># ditto</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ping-instance-method">
+      <div class="signature">
+        
+        def <strong>ping</strong>
+
+        <a class="method-permalink" href="#ping-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Ping Tarantool and return elapsed time.</p>
+
+<pre><code>db.ping <span class="c"># =&gt; 00:00:00.000181477</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="replace(space:Int|String|Symbol,tuple:Tuple|Array)-instance-method">
+      <div class="signature">
+        
+        def <strong>replace</strong>(space : Int | String | Symbol, tuple : Tuple | Array)
+
+        <a class="method-permalink" href="#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send REPLACE request.</p>
+
+<p>From Tarantool docs: "Insert a tuple into the space or replace an existing one."</p>
+
+<pre><code>db.replace(<span class="n">999</span>, {<span class="n">1</span>, <span class="s">&quot;faust&quot;</span>}) <span class="c"># Replace in space #999 value {1, &quot;vlad&quot;} with {1, &quot;faust&quot;} or insert if not exists</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L117" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select(space:Int|String|Symbol,index:Int|String|Symbol,key:Tuple|Array,iterator:Iterator|Symbol|String=Iterator::Equal,offset=0,limit=2**30)-instance-method">
+      <div class="signature">
+        
+        def <strong>select</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : <a href="../../Tarantool/Iterator.html">Iterator</a> | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)
+
+        <a class="method-permalink" href="#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send SELECT request.</p>
+
+<p>From Tarantool docs: "Find tuples matching the search pattern."</p>
+
+<pre><code>db.<span class="k">select</span>(<span class="n">999</span>, <span class="n">0</span>, {<span class="n">1</span>})                 <span class="c"># Select {1} from space #999 by index #0</span>
+db.<span class="k">select</span>(<span class="s">&quot;examples&quot;</span>, <span class="s">&quot;primary&quot;</span>, {<span class="n">1</span>})  <span class="c"># ditto</span>
+db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="n">:wage</span>, {<span class="n">50</span>}, <span class="n">:&gt;=</span>) <span class="c"># Select with wage &gt;= 50</span></code></pre>
+
+<p>Iterators mapping (string or symbol value is accepted):</p>
+
+<ul><li><strong>Equal:</strong> <code>eq</code> <em>or</em> <code>==</code></li><li><strong>Reversed equal:</strong> <code>reveq</code> <em>or</em> <code>==<</code></li><li><strong>All:</strong> <code>all</code> <em>or</em> <code>*</code></li><li><strong>Less than:</strong> <code>lt</code> <em>or</em> <code><</code></li><li><strong>Less than or equal:</strong> <code>lte</code> <em>or</em> <code><=</code></li><li><strong>Greater than or equal:</strong> <code>gte</code> <em>or</em> <code>>=</code></li><li><strong>Greater than:</strong> <code>gt</code> <em>or</em> <code>></code></li><li><strong>Bits all set:</strong> <code>bitall</code> <em>or</em> <code>&=</code></li><li><strong>Bits any set:</strong> <code>bitany</code> <em>or</em> <code>&</code></li><li><strong>Rtree overlaps:</strong> <code>overlaps</code> <em>or</em> <code>&&</code></li><li><strong>Rtree neighbor:</strong> <code>neighbor</code> <em>or</em> <code><-></code></li></ul>
+
+<p>Also see <a href="https://tarantool.io/en/doc/1.9/book/box/box_index.html#box-index-iterator-types" target="_blank">iterators documentation</a>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L64" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="space_name_to_id(name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>space_name_to_id</strong>(name : String)
+
+        <a class="method-permalink" href="#space_name_to_id%28name%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get space ID by its <em>name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L217" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update(space:Int|String|Symbol,index:Int|String|Symbol,key:Tuple|Array,tuple:Array)-instance-method">
+      <div class="signature">
+        
+        def <strong>update</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)
+
+        <a class="method-permalink" href="#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send UPDATE request.</p>
+
+<p>From Tarantool docs: "Update a tuple. It is an error to specify an argument of a type that differs from the expected type."</p>
+
+<pre><code>db.update(<span class="n">999</span>, <span class="n">0</span>, {<span class="n">1</span>}, [{<span class="s">&quot;:&quot;</span>, <span class="n">1</span>, <span class="n">0</span>, <span class="n">0</span>, <span class="s">&quot;vlad&quot;</span>}]) <span class="c"># Append &quot;vlad&quot; to &quot;faust&quot;, resulting in &quot;vladfaust&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L133" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="upsert(space:Int|String|Symbol,tuple:Tuple|Array,ops:Array)-instance-method">
+      <div class="signature">
+        
+        def <strong>upsert</strong>(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)
+
+        <a class="method-permalink" href="#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Send UPSERT request.</p>
+
+<p>From Tarantool docs: "Update tuple if it would be found elsewhere try to insert tuple. Always use primary index for key."</p>
+
+<pre><code>db.eval(<span class="n">999</span>, {<span class="n">1</span>, <span class="s">&quot;vlad&quot;</span>}, [<span class="s">&quot;=&quot;</span>, <span class="n">1</span>, <span class="s">&quot;vladfaust&quot;</span>]) <span class="c"># Insert {1, &quot;vlad&quot;} or replace its name with &quot;vladfaust&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L206" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

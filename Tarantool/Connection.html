@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../";
+</script>
+
+  <meta id="repository-name" content="github.com/vladfaust/tarantool.cr">
+  <title>Tarantool::Connection - github.com/vladfaust/tarantool.cr</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="github.com/vladfaust/tarantool.cr/Tarantool" data-name="tarantool">
+      <a href="../Tarantool.html">Tarantool</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/CommandCode" data-name="tarantool::commandcode">
+      <a href="../Tarantool/CommandCode.html">CommandCode</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection" data-name="tarantool::connection">
+      <a href="../Tarantool/Connection.html">Connection</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Requests" data-name="tarantool::connection::requests">
+      <a href="../Tarantool/Connection/Requests.html">Requests</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Connection/Schema" data-name="tarantool::connection::schema">
+      <a href="../Tarantool/Connection/Schema.html">Schema</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Iterator" data-name="tarantool::iterator">
+      <a href="../Tarantool/Iterator.html">Iterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Key" data-name="tarantool::key">
+      <a href="../Tarantool/Key.html">Key</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response" data-name="tarantool::response">
+      <a href="../Tarantool/Response.html">Response</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Body" data-name="tarantool::response::body">
+      <a href="../Tarantool/Response/Body.html">Body</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Error" data-name="tarantool::response::error">
+      <a href="../Tarantool/Response/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/Response/Header" data-name="tarantool::response::header">
+      <a href="../Tarantool/Response/Header.html">Header</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/vladfaust/tarantool.cr/Tarantool/ResponseCode" data-name="tarantool::responsecode">
+      <a href="../Tarantool/ResponseCode.html">ResponseCode</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Tarantool::Connection
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Tarantool/Connection.html">Tarantool::Connection</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>A main class which holds a TCP connection to a Tarantool instance.</p>
+
+<p>Its interaction methods (<code>#ping</code>, <code>#select</code>, <code>#update</code> etc.) are synchronous and always return a <code><a href="../Tarantool/Response.html">Response</a></code> instance (except for <code>#ping</code> which returns <code>Time</code>).</p>
+
+<p>It's recommended to call <code><a href="../Tarantool/Connection.html#parse_schema-instance-method">#parse_schema</a></code> right after initialization.</p>
+
+<p>When <code><a href="../Tarantool/Connection.html#parse_schema-instance-method">#parse_schema</a></code> is called, referencing spaces and indexes by their names (either strings or symbols) is allowed:</p>
+
+<pre><code>db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="n">:primary</span>, {<span class="n">1</span>}) <span class="c"># Raises ArgumentError</span>
+db.parse_schema
+db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="n">:primary</span>, {<span class="n">1</span>})</code></pre>
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="../Tarantool/Connection/Requests.html">Tarantool::Connection::Requests</a></li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection/requests.cr#L4" target="_blank">
+        tarantool/connection/requests.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L26" target="_blank">
+        tarantool/connection.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28host%3AString%2Cport%3AInt32%2Cuser%3AString%3F%3Dnil%2Cpassword%3AString%3F%3Dnil%2C%2A%2Clogger%3ALogger%3F%3Dnil%2Cconnect_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cdns_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cread_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cwrite_timeout%3ATime%3A%3ASpan%3F%3D1.second%29-class-method" class="signature"><strong>.new</strong>(host : String, port : Int32, user : String? = <span class="n">nil</span>, password : String? = <span class="n">nil</span>, *, logger : Logger? = <span class="n">nil</span>, connect_timeout : Time::Span? = <span class="n">1</span>.second, dns_timeout : Time::Span? = <span class="n">1</span>.second, read_timeout : Time::Span? = <span class="n">1</span>.second, write_timeout : Time::Span? = <span class="n">1</span>.second)</a>
+        
+          <div class="summary"><p>Initialize a new Tarantool connection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28uri%3AString%2C%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.new</strong>(uri : String, *args, **nargs)</a>
+        
+          <div class="summary"><p>Initialize a new Tarantool connection with string URI.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28uri%3AURI%2C%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.new</strong>(uri : URI, *args, **nargs)</a>
+        
+          <div class="summary"><p>Initialize a new Tarantool connection with URI.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#alive%3F%3ABool-instance-method" class="signature"><strong>#alive?</strong> : Bool</a>
+        
+          <div class="summary"><p>Check whether the connection is still alive.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#close-instance-method" class="signature"><strong>#close</strong></a>
+        
+          <div class="summary"><p>Close the connection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_schema-instance-method" class="signature"><strong>#parse_schema</strong></a>
+        
+          <div class="summary"><p>Parse current box schema.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#routine-instance-method" class="signature"><strong>#routine</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#schema%3ASchema-instance-method" class="signature"><strong>#schema</strong> : Schema</a>
+        
+          <div class="summary"><p>A small copy of current box schema containing spaces and their indexes.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Tarantool/Connection/Requests.html">Tarantool::Connection::Requests</a></code></h3>
+  
+  
+    <a href="../Tarantool/Connection/Requests.html#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method" class="tooltip">
+      <span>authenticate(username : String, password : String = <span class="s">&quot;&quot;</span>)</span>
+    authenticate</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="tooltip">
+      <span>call(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</span>
+    call</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method" class="tooltip">
+      <span>delete(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)</span>
+    delete</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="tooltip">
+      <span>eval(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</span>
+    eval</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#get%28space%2Ckey%29-instance-method" class="tooltip">
+      <span>get(space, key)</span>
+    get</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method" class="tooltip">
+      <span>index_name_to_id(space_id : Int, index_name : String)<br/>index_name_to_id(space_name : String, index_name : String)</span>
+    index_name_to_id</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="tooltip">
+      <span>insert(space : Int | String | Symbol, tuple : Tuple | Array)</span>
+    insert</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#ping-instance-method" class="tooltip">
+      <span>ping</span>
+    ping</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="tooltip">
+      <span>replace(space : Int | String | Symbol, tuple : Tuple | Array)</span>
+    replace</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method" class="tooltip">
+      <span>select(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : Iterator | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)</span>
+    select</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#space_name_to_id%28name%3AString%29-instance-method" class="tooltip">
+      <span>space_name_to_id(name : String)</span>
+    space_name_to_id</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method" class="tooltip">
+      <span>update(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)</span>
+    update</a>, 
+    
+  
+    <a href="../Tarantool/Connection/Requests.html#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method" class="tooltip">
+      <span>upsert(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)</span>
+    upsert</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(host:String,port:Int32,user:String?=nil,password:String?=nil,*,logger:Logger?=nil,connect_timeout:Time::Span?=1.second,dns_timeout:Time::Span?=1.second,read_timeout:Time::Span?=1.second,write_timeout:Time::Span?=1.second)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(host : String, port : Int32, user : String? = <span class="n">nil</span>, password : String? = <span class="n">nil</span>, *, logger : Logger? = <span class="n">nil</span>, connect_timeout : Time::Span? = <span class="n">1</span>.second, dns_timeout : Time::Span? = <span class="n">1</span>.second, read_timeout : Time::Span? = <span class="n">1</span>.second, write_timeout : Time::Span? = <span class="n">1</span>.second)
+
+        <a class="method-permalink" href="#new%28host%3AString%2Cport%3AInt32%2Cuser%3AString%3F%3Dnil%2Cpassword%3AString%3F%3Dnil%2C%2A%2Clogger%3ALogger%3F%3Dnil%2Cconnect_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cdns_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cread_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cwrite_timeout%3ATime%3A%3ASpan%3F%3D1.second%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Initialize a new Tarantool connection.
+May raise <code>IO::Timeout</code> on <em>connect_timeout</em> or <em>read_timeout</em>.</p>
+
+<p>If something bad happens with the connection, it will not raise unless made a request.
+You can check is the connection is still alive with <code><a href="../Tarantool/Connection.html#alive%3F%3ABool-instance-method">#alive?</a></code> command.</p>
+
+<pre><code>db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</span><span class="t">Connection</span>.<span class="k">new</span>(<span class="s">&quot;localhost&quot;</span>, <span class="n">3301</span>, <span class="s">&quot;admin&quot;</span>, <span class="s">&quot;password&quot;</span>, logger: <span class="t">Logger</span>.<span class="k">new</span>(<span class="t">STDOUT</span>))
+db.ping <span class="c"># =&gt; 00:00:00.000181477</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L64" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(uri:String,*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(uri : String, *args, **nargs)
+
+        <a class="method-permalink" href="#new%28uri%3AString%2C%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Initialize a new Tarantool connection with string URI. May eventually raise <code>IO::Timeout</code> on <em>timeout</em>.</p>
+
+<pre><code>db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</span><span class="t">Connection</span>.<span class="k">new</span>(<span class="s">&quot;tarantool://admin:password@localhost:3301&quot;</span>)</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(uri:URI,*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(uri : URI, *args, **nargs)
+
+        <a class="method-permalink" href="#new%28uri%3AURI%2C%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Initialize a new Tarantool connection with URI. May eventually raise <code>IO::Timeout</code> on <em>timeout</em>.</p>
+
+<pre><code>uri <span class="o">=</span> <span class="t">URI</span>.parse(<span class="s">&quot;tarantool://localhost:3301&quot;</span>)
+db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</span><span class="t">Connection</span>.<span class="k">new</span>(uri)</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="alive?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>alive?</strong> : Bool
+
+        <a class="method-permalink" href="#alive%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Check whether the connection is still alive.
+Otherwise requests may raise <code>Errno</code> error.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="close-instance-method">
+      <div class="signature">
+        
+        def <strong>close</strong>
+
+        <a class="method-permalink" href="#close-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Close the connection.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L146" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_schema-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_schema</strong>
+
+        <a class="method-permalink" href="#parse_schema-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Parse current box schema. Allows to use named spaces and indexes in requests.</p>
+
+<p><span class="flag purple">NOTE</span>  This will fail if current user doesn't have execute access to "universe".</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L166" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="routine-instance-method">
+      <div class="signature">
+        
+        def <strong>routine</strong>
+
+        <a class="method-permalink" href="#routine-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="schema:Schema-instance-method">
+      <div class="signature">
+        
+        def <strong>schema</strong> : <a href="../Tarantool/Connection/Schema.html">Schema</a>
+
+        <a class="method-permalink" href="#schema%3ASchema-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>A small copy of current box schema containing spaces and their indexes.
+Allows to use named spaces and indexes in requests.</p>
+
+<p>Updated by calling <code><a href="../Tarantool/Connection.html#parse_schema-instance-method">#parse_schema</a></code>.</p>
+
+<p>You can also modify it yourself:</p>
+
+<pre><code>db.schema[<span class="s">&quot;examples&quot;</span>] <span class="o">=</span> {id: <span class="n">999_u16</span>, indexes: {<span class="s">&quot;primary&quot;</span>: <span class="n">0_u8</span>}}</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/vladfaust/tarantool.cr/blob/7fb1b224a4c2420337e7ccea67f40cdc600e18d1/src/tarantool/connection.cr#L164" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
