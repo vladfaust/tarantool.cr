@@ -88,12 +88,14 @@ module Tarantool
       @encoded_salt = @socket.gets.not_nil![0...44]
 
       spawn do
-        routine
-      rescue ex : Exception
-        # It's wrapped in spawn because there is no guarantee
-        # that anyone would read from the @error_channel
-        spawn do
-          @error_channel.send(ex)
+        begin
+          routine
+        rescue ex : Exception
+          # It's wrapped in spawn because there is no guarantee
+          # that anyone would read from the @error_channel
+          spawn do
+            @error_channel.send(ex)
+          end
         end
       ensure
         @open = false
