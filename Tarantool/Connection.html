@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.29.0">
+<meta name="generator" content="Crystal Docs 0.30.0">
 
 
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -189,21 +189,21 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28host%3AString%2Cport%3AInt32%2Cuser%3AString%3F%3Dnil%2Cpassword%3AString%3F%3Dnil%2C%2A%2Clogger%3ALogger%3F%3Dnil%2Cconnect_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cdns_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cread_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cwrite_timeout%3ATime%3A%3ASpan%3F%3D1.second%29-class-method" class="signature"><strong>.new</strong>(host : String, port : Int32, user : String? = <span class="n">nil</span>, password : String? = <span class="n">nil</span>, *, logger : Logger? = <span class="n">nil</span>, connect_timeout : Time::Span? = <span class="n">1</span>.second, dns_timeout : Time::Span? = <span class="n">1</span>.second, read_timeout : Time::Span? = <span class="n">1</span>.second, write_timeout : Time::Span? = <span class="n">1</span>.second)</a>
+        <a href="#new(host:String,port:Int32,user:String?=nil,password:String?=nil,*,logger:Logger?=nil,connect_timeout:Time::Span?=1.second,dns_timeout:Time::Span?=1.second,read_timeout:Time::Span?=1.second,write_timeout:Time::Span?=1.second)-class-method" class="signature"><strong>.new</strong>(host : String, port : Int32, user : String? = <span class="n">nil</span>, password : String? = <span class="n">nil</span>, *, logger : Logger? = <span class="n">nil</span>, connect_timeout : Time::Span? = <span class="n">1</span>.second, dns_timeout : Time::Span? = <span class="n">1</span>.second, read_timeout : Time::Span? = <span class="n">1</span>.second, write_timeout : Time::Span? = <span class="n">1</span>.second)</a>
         
           <div class="summary"><p>Initialize a new Tarantool connection.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28uri%3AString%2C%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.new</strong>(uri : String, *args, **nargs)</a>
+        <a href="#new(uri:String,*args,**nargs)-class-method" class="signature"><strong>.new</strong>(uri : String, *args, **nargs)</a>
         
           <div class="summary"><p>Initialize a new Tarantool connection with string URI.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28uri%3AURI%2C%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.new</strong>(uri : URI, *args, **nargs)</a>
+        <a href="#new(uri:URI,*args,**nargs)-class-method" class="signature"><strong>.new</strong>(uri : URI, *args, **nargs)</a>
         
           <div class="summary"><p>Initialize a new Tarantool connection with URI.</p></div>
         
@@ -219,7 +219,7 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#alive%3F%3ABool-instance-method" class="signature"><strong>#alive?</strong> : Bool</a>
+        <a href="#alive?:Bool-instance-method" class="signature"><strong>#alive?</strong> : Bool</a>
         
           <div class="summary"><p>Check whether the connection is still alive.</p></div>
         
@@ -245,7 +245,7 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
       </li>
     
       <li class="entry-summary">
-        <a href="#schema%3ASchema-instance-method" class="signature"><strong>#schema</strong> : Schema</a>
+        <a href="#schema:Schema-instance-method" class="signature"><strong>#schema</strong> : Schema</a>
         
           <div class="summary"><p>A small copy of current box schema containing spaces and their indexes.</p></div>
         
@@ -264,37 +264,37 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
   <h3>Instance methods inherited from module <code><a href="../Tarantool/Connection/Requests.html">Tarantool::Connection::Requests</a></code></h3>
   
   
-    <a href="../Tarantool/Connection/Requests.html#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#authenticate(username:String,password:String=&quot;&quot;)-instance-method" class="tooltip">
       <span>authenticate(username : String, password : String = <span class="s">&quot;&quot;</span>)</span>
     authenticate</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#call(function:String%7CSymbol,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method" class="tooltip">
       <span>call(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</span>
     call</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#delete(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray)-instance-method" class="tooltip">
       <span>delete(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)</span>
     delete</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#eval(expression:String,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method" class="tooltip">
       <span>eval(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</span>
     eval</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#get%28space%2Ckey%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#get(space,key)-instance-method" class="tooltip">
       <span>get(space, key)</span>
     get</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#index_name_to_id(space_id:Int,index_name:String)-instance-method" class="tooltip">
       <span>index_name_to_id(space_id : Int, index_name : String)<br/>index_name_to_id(space_name : String, index_name : String)</span>
     index_name_to_id</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#insert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method" class="tooltip">
       <span>insert(space : Int | String | Symbol, tuple : Tuple | Array)</span>
     insert</a>, 
     
@@ -304,27 +304,27 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
     ping</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#replace(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method" class="tooltip">
       <span>replace(space : Int | String | Symbol, tuple : Tuple | Array)</span>
     replace</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#select(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,iterator:Iterator%7CSymbol%7CString=Iterator::Equal,offset=0,limit=2**30)-instance-method" class="tooltip">
       <span>select(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : Iterator | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)</span>
     select</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#space_name_to_id%28name%3AString%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#space_name_to_id(name:String)-instance-method" class="tooltip">
       <span>space_name_to_id(name : String)</span>
     space_name_to_id</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#update(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,tuple:Array)-instance-method" class="tooltip">
       <span>update(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)</span>
     update</a>, 
     
   
-    <a href="../Tarantool/Connection/Requests.html#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method" class="tooltip">
+    <a href="../Tarantool/Connection/Requests.html#upsert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray,ops:Array)-instance-method" class="tooltip">
       <span>upsert(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)</span>
     upsert</a>
     
@@ -368,14 +368,14 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
         
         def self.<strong>new</strong>(host : String, port : Int32, user : String? = <span class="n">nil</span>, password : String? = <span class="n">nil</span>, *, logger : Logger? = <span class="n">nil</span>, connect_timeout : Time::Span? = <span class="n">1</span>.second, dns_timeout : Time::Span? = <span class="n">1</span>.second, read_timeout : Time::Span? = <span class="n">1</span>.second, write_timeout : Time::Span? = <span class="n">1</span>.second)
 
-        <a class="method-permalink" href="#new%28host%3AString%2Cport%3AInt32%2Cuser%3AString%3F%3Dnil%2Cpassword%3AString%3F%3Dnil%2C%2A%2Clogger%3ALogger%3F%3Dnil%2Cconnect_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cdns_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cread_timeout%3ATime%3A%3ASpan%3F%3D1.second%2Cwrite_timeout%3ATime%3A%3ASpan%3F%3D1.second%29-class-method">#</a>
+        <a class="method-permalink" href="#new(host:String,port:Int32,user:String?=nil,password:String?=nil,*,logger:Logger?=nil,connect_timeout:Time::Span?=1.second,dns_timeout:Time::Span?=1.second,read_timeout:Time::Span?=1.second,write_timeout:Time::Span?=1.second)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Initialize a new Tarantool connection.
 May raise <code>IO::Timeout</code> on <em>connect_timeout</em> or <em>read_timeout</em>.</p>
 
 <p>If something bad happens with the connection, it will not raise unless made a request.
-You can check is the connection is still alive with <code><a href="../Tarantool/Connection.html#alive%3F%3ABool-instance-method">#alive?</a></code> command.</p>
+You can check is the connection is still alive with <code><a href="../Tarantool/Connection.html#alive?:Bool-instance-method">#alive?</a></code> command.</p>
 
 <pre><code>db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</span><span class="t">Connection</span>.<span class="k">new</span>(<span class="s">&quot;localhost&quot;</span>, <span class="n">3301</span>, <span class="s">&quot;admin&quot;</span>, <span class="s">&quot;password&quot;</span>, logger: <span class="t">Logger</span>.<span class="k">new</span>(<span class="t">STDOUT</span>))
 db.ping <span class="c"># =&gt; 00:00:00.000181477</span></code></pre></div>
@@ -393,7 +393,7 @@ db.ping <span class="c"># =&gt; 00:00:00.000181477</span></code></pre></div>
         
         def self.<strong>new</strong>(uri : String, *args, **nargs)
 
-        <a class="method-permalink" href="#new%28uri%3AString%2C%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#new(uri:String,*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Initialize a new Tarantool connection with string URI. May eventually raise <code>IO::Timeout</code> on <em>timeout</em>.</p>
@@ -413,7 +413,7 @@ db.ping <span class="c"># =&gt; 00:00:00.000181477</span></code></pre></div>
         
         def self.<strong>new</strong>(uri : URI, *args, **nargs)
 
-        <a class="method-permalink" href="#new%28uri%3AURI%2C%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#new(uri:URI,*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Initialize a new Tarantool connection with URI. May eventually raise <code>IO::Timeout</code> on <em>timeout</em>.</p>
@@ -441,7 +441,7 @@ db <span class="o">=</span> <span class="t">Tarantool</span><span class="t">::</
         
         def <strong>alive?</strong> : Bool
 
-        <a class="method-permalink" href="#alive%3F%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#alive?:Bool-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Check whether the connection is still alive.
@@ -514,7 +514,7 @@ Otherwise requests may raise <code>Errno</code> error.</p></div>
         
         def <strong>schema</strong> : <a href="../Tarantool/Connection/Schema.html">Schema</a>
 
-        <a class="method-permalink" href="#schema%3ASchema-instance-method">#</a>
+        <a class="method-permalink" href="#schema:Schema-instance-method">#</a>
       </div>
       
         <div class="doc"><p>A small copy of current box schema containing spaces and their indexes.

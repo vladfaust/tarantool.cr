@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.29.0">
+<meta name="generator" content="Crystal Docs 0.30.0">
 
 
 <link href="../../css/style.css" rel="stylesheet" type="text/css">
@@ -170,56 +170,56 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method" class="signature"><strong>#authenticate</strong>(username : String, password : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#authenticate(username:String,password:String=&quot;&quot;)-instance-method" class="signature"><strong>#authenticate</strong>(username : String, password : String = <span class="s">&quot;&quot;</span>)</a>
         
           <div class="summary"><p>Send AUTHORIZATION request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="signature"><strong>#call</strong>(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
+        <a href="#call(function:String%7CSymbol,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method" class="signature"><strong>#call</strong>(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
         
           <div class="summary"><p>Send CALL request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method" class="signature"><strong>#delete</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)</a>
+        <a href="#delete(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray)-instance-method" class="signature"><strong>#delete</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)</a>
         
           <div class="summary"><p>Send DELETE request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method" class="signature"><strong>#eval</strong>(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
+        <a href="#eval(expression:String,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method" class="signature"><strong>#eval</strong>(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)</a>
         
           <div class="summary"><p>Send EVAL request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#get%28space%2Ckey%29-instance-method" class="signature"><strong>#get</strong>(space, key)</a>
+        <a href="#get(space,key)-instance-method" class="signature"><strong>#get</strong>(space, key)</a>
         
-          <div class="summary"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
+          <div class="summary"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,iterator:Iterator%7CSymbol%7CString=Iterator::Equal,offset=0,limit=2**30)-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_id : Int, index_name : String)</a>
+        <a href="#index_name_to_id(space_id:Int,index_name:String)-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_id : Int, index_name : String)</a>
         
           <div class="summary"><p>Get index ID by <em>space_id</em> and <em>index_name</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#index_name_to_id%28space_name%3AString%2Cindex_name%3AString%29-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_name : String, index_name : String)</a>
+        <a href="#index_name_to_id(space_name:String,index_name:String)-instance-method" class="signature"><strong>#index_name_to_id</strong>(space_name : String, index_name : String)</a>
         
           <div class="summary"><p>Get index ID by <em>space_name</em> and <em>index_name</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="signature"><strong>#insert</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
+        <a href="#insert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method" class="signature"><strong>#insert</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
         
           <div class="summary"><p>Send INSERT request.</p></div>
         
@@ -233,35 +233,35 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method" class="signature"><strong>#replace</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
+        <a href="#replace(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method" class="signature"><strong>#replace</strong>(space : Int | String | Symbol, tuple : Tuple | Array)</a>
         
           <div class="summary"><p>Send REPLACE request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method" class="signature"><strong>#select</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : Iterator | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)</a>
+        <a href="#select(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,iterator:Iterator%7CSymbol%7CString=Iterator::Equal,offset=0,limit=2**30)-instance-method" class="signature"><strong>#select</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : Iterator | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)</a>
         
           <div class="summary"><p>Send SELECT request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#space_name_to_id%28name%3AString%29-instance-method" class="signature"><strong>#space_name_to_id</strong>(name : String)</a>
+        <a href="#space_name_to_id(name:String)-instance-method" class="signature"><strong>#space_name_to_id</strong>(name : String)</a>
         
           <div class="summary"><p>Get space ID by its <em>name</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method" class="signature"><strong>#update</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)</a>
+        <a href="#update(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,tuple:Array)-instance-method" class="signature"><strong>#update</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)</a>
         
           <div class="summary"><p>Send UPDATE request.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method" class="signature"><strong>#upsert</strong>(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)</a>
+        <a href="#upsert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray,ops:Array)-instance-method" class="signature"><strong>#upsert</strong>(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)</a>
         
           <div class="summary"><p>Send UPSERT request.</p></div>
         
@@ -289,7 +289,7 @@
         
         def <strong>authenticate</strong>(username : String, password : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#authenticate%28username%3AString%2Cpassword%3AString%3D%26quot%3B%26quot%3B%29-instance-method">#</a>
+        <a class="method-permalink" href="#authenticate(username:String,password:String=&quot;&quot;)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send AUTHORIZATION request.</p>
@@ -312,7 +312,7 @@ db.authenticate(<span class="s">&quot;john&quot;</span>, <span class="s">&quot;s
         
         def <strong>call</strong>(function : String | Symbol, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)
 
-        <a class="method-permalink" href="#call%28function%3AString%7CSymbol%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method">#</a>
+        <a class="method-permalink" href="#call(function:String%7CSymbol,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send CALL request.</p>
@@ -334,7 +334,7 @@ db.authenticate(<span class="s">&quot;john&quot;</span>, <span class="s">&quot;s
         
         def <strong>delete</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array)
 
-        <a class="method-permalink" href="#delete%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%29-instance-method">#</a>
+        <a class="method-permalink" href="#delete(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send DELETE request.</p>
@@ -357,7 +357,7 @@ db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span
         
         def <strong>eval</strong>(expression : String, args : Tuple | Array = <span class="o">[]</span> <span class="k">of</span> <span class="t">MessagePack</span><span class="t">::</span><span class="t">Type</span>)
 
-        <a class="method-permalink" href="#eval%28expression%3AString%2Cargs%3ATuple%7CArray%3D%5B%5DofMessagePack%3A%3AType%29-instance-method">#</a>
+        <a class="method-permalink" href="#eval(expression:String,args:Tuple%7CArray=[]ofMessagePack::Type)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send EVAL request.</p>
@@ -379,10 +379,10 @@ db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span
         
         def <strong>get</strong>(space, key)
 
-        <a class="method-permalink" href="#get%28space%2Ckey%29-instance-method">#</a>
+        <a class="method-permalink" href="#get(space,key)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
+        <div class="doc"><p>Same as <code><a href="../../Tarantool/Connection/Requests.html#select(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,iterator:Iterator%7CSymbol%7CString=Iterator::Equal,offset=0,limit=2**30)-instance-method">#select</a></code> but with primary index and limit equal to 1.</p></div>
       
       <br/>
       <div>
@@ -397,7 +397,7 @@ db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span
         
         def <strong>index_name_to_id</strong>(space_id : Int, index_name : String)
 
-        <a class="method-permalink" href="#index_name_to_id%28space_id%3AInt%2Cindex_name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#index_name_to_id(space_id:Int,index_name:String)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Get index ID by <em>space_id</em> and <em>index_name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
@@ -415,7 +415,7 @@ db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span
         
         def <strong>index_name_to_id</strong>(space_name : String, index_name : String)
 
-        <a class="method-permalink" href="#index_name_to_id%28space_name%3AString%2Cindex_name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#index_name_to_id(space_name:String,index_name:String)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Get index ID by <em>space_name</em> and <em>index_name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
@@ -433,7 +433,7 @@ db.delete(<span class="n">:examples</span>, <span class="n">:name</span>, {<span
         
         def <strong>insert</strong>(space : Int | String | Symbol, tuple : Tuple | Array)
 
-        <a class="method-permalink" href="#insert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method">#</a>
+        <a class="method-permalink" href="#insert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send INSERT request.</p>
@@ -476,7 +476,7 @@ db.insert(<span class="n">:examples</span>, {<span class="n">1</span>, <span cla
         
         def <strong>replace</strong>(space : Int | String | Symbol, tuple : Tuple | Array)
 
-        <a class="method-permalink" href="#replace%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%29-instance-method">#</a>
+        <a class="method-permalink" href="#replace(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send REPLACE request.</p>
@@ -498,7 +498,7 @@ db.insert(<span class="n">:examples</span>, {<span class="n">1</span>, <span cla
         
         def <strong>select</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, iterator : <a href="../../Tarantool/Iterator.html">Iterator</a> | Symbol | String = <span class="t">Iterator</span><span class="t">::</span><span class="t">Equal</span>, offset = <span class="n">0</span>, limit = <span class="n">2</span> <span class="o">**</span> <span class="n">30</span>)
 
-        <a class="method-permalink" href="#select%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Citerator%3AIterator%7CSymbol%7CString%3DIterator%3A%3AEqual%2Coffset%3D0%2Climit%3D2%2A%2A30%29-instance-method">#</a>
+        <a class="method-permalink" href="#select(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,iterator:Iterator%7CSymbol%7CString=Iterator::Equal,offset=0,limit=2**30)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send SELECT request.</p>
@@ -528,7 +528,7 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
         
         def <strong>space_name_to_id</strong>(name : String)
 
-        <a class="method-permalink" href="#space_name_to_id%28name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#space_name_to_id(name:String)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Get space ID by its <em>name</em>. Call <code>#parse_schema</code> beforehand.</p></div>
@@ -546,7 +546,7 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
         
         def <strong>update</strong>(space : Int | String | Symbol, index : Int | String | Symbol, key : Tuple | Array, tuple : Array)
 
-        <a class="method-permalink" href="#update%28space%3AInt%7CString%7CSymbol%2Cindex%3AInt%7CString%7CSymbol%2Ckey%3ATuple%7CArray%2Ctuple%3AArray%29-instance-method">#</a>
+        <a class="method-permalink" href="#update(space:Int%7CString%7CSymbol,index:Int%7CString%7CSymbol,key:Tuple%7CArray,tuple:Array)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send UPDATE request.</p>
@@ -568,7 +568,7 @@ db.<span class="k">select</span>(<span class="n">:examples</span>, <span class="
         
         def <strong>upsert</strong>(space : Int | String | Symbol, tuple : Tuple | Array, ops : Array)
 
-        <a class="method-permalink" href="#upsert%28space%3AInt%7CString%7CSymbol%2Ctuple%3ATuple%7CArray%2Cops%3AArray%29-instance-method">#</a>
+        <a class="method-permalink" href="#upsert(space:Int%7CString%7CSymbol,tuple:Tuple%7CArray,ops:Array)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Send UPSERT request.</p>
