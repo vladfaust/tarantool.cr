@@ -27,7 +27,7 @@ module Tarantool
     include Requests
 
     @sync : UInt64 = 0_u64
-    @channels = {} of UInt64 => Channel::Unbuffered(Response)
+    @channels = {} of UInt64 => Channel(Response)
     @error_channel = Channel(Exception).new(1)
     @waiting_since = {} of UInt64 => Time
     @encoded_salt : String
