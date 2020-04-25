@@ -124,12 +124,11 @@ module Tarantool
 
       while @open
         if @socket.read_fully?(slice)
-          arrived_at = Time.now
+          arrived_at = Time.utc
           response = Response.new(unpacker)
           sync = response.header.sync
 
           @logger.try &.debug("[#{sync}] " + TimeFormat.auto(arrived_at - @waiting_since[sync].not_nil!).rjust(5) + " latency")
-
           @channels[sync]?.try &.send(response)
           Fiber.yield
         else
@@ -201,7 +200,7 @@ module Tarantool
         payload = form_request(code, sync, body)
 
         channel = @channels[sync] = Channel(Response).new
-        @waiting_since[sync] = Time.now
+        @waiting_since[sync] = Time.utc
 
         @socket.send(payload)
 
@@ -213,7 +212,6 @@ module Tarantool
       end
 
       @logger.try &.debug("[#{sync}] " + TimeFormat.auto(elapsed).rjust(5) + " elapsed")
-
       @channels.delete(sync)
 
       raise Response::Error.new(response) if response.error
@@ -236,7 +234,7 @@ module Tarantool
       # Related to endians as well
       bytes = packer.to_slice
       size = bytes.size - 5
-      bytes[4] = size.to_u8
+      bytes[4] = (size % 256).to_u8
       bytes[3] = (size >> 8).to_u8
       bytes[2] = (size >> 16).to_u8
       bytes[1] = (size >> 24).to_u8
